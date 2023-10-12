@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db.config');
 
 
-const Konseling = sequelize.define('konseling', {  
+const Konseling = sequelize.define('konselings', {  
     nama_lengkap: {
         type: DataTypes.STRING,
     },

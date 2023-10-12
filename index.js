@@ -4,6 +4,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 const testimoniRoute = require('./routes/testimoni.routes');
 const konselingRoute = require('./routes/konseling.routes');
+const cors = require('cors');
+
+app.use(cors());
 
 // app.use(cors());
 app.use(express.json());
@@ -21,5 +24,11 @@ app.get('/', (req, res) => {
 
 app.use('/api/testimoni', testimoniRoute);
 app.use('/api/konseling', konselingRoute);
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 
 app.listen(port, '0.0.0.0', () => console.log(`App listening on port http://localhost:${port}!`));
